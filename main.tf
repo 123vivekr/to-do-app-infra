@@ -23,10 +23,10 @@ terraform {
 
 module "network" {
   source = "./modules/network"
-
+  elb_sg_cidr = ["103.160.233.3/32", "49.37.178.194/32"]
 }
 
 module "cluster" {
   source = "./modules/cluster"
-
+  subnet_ids = module.network.subnet_ids
 }
