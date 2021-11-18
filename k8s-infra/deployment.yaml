@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: to-do-app-deployment
+  namespace: to-do-app
+  label: 
+    app: to-do-app
+spec:
+  selector:
+    matchLabels:
+      app: to-do-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: to-do-app
+    spec:
+      containers:
+      - name: to-do-app
+        image: 230273005112.dkr.ecr.ap-south-1.amazonaws.com/todo_app_vivek_anjith:f30c2d
+        imagePullPolicy: Always
+        ports:
+        - name: web
+          containerPort: 80
+      imagePullSecrets:
+        - name: regcred
