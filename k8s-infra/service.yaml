@@ -3,8 +3,11 @@ kind: Service
 metadata:
   name: to-do-app-service
   namespace: to-do-app
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-security-groups: "sg-0684a15dd960a2d00"
 spec:
   type: LoadBalancer
+  annotation: 
   selector:
     app: to-do-app
   ports:
