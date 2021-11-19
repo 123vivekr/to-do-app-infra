@@ -11,6 +11,10 @@ resource "aws_iam_role" "node_group_role" {
     }]
     Version = "2012-10-17"
   })
+
+  tags = {
+    name = "vivek_anjith_role"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "AmazonEKSWorkerNodePolicy" {
@@ -52,4 +56,8 @@ resource "aws_eks_node_group" "to_do_app_node_group" {
     aws_iam_role_policy_attachment.AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly,
   ]
+
+  tags = {
+    name = "vivek_anjith_node"
+  }
 }

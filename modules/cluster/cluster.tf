@@ -1,6 +1,4 @@
 resource "aws_iam_role" "cluster_role" {
-  name = "cluster_role_vivek_anjith"
-
   assume_role_policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -32,7 +30,6 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController" {
 resource "aws_eks_cluster" "to_do_app_cluster" {
   name     = "to_do_app_cluster_vivek_anjith"
   role_arn = aws_iam_role.cluster_role.arn
-  security_group_ids = [aws_security_group.cluster_sg.id]
 
   vpc_config {
     subnet_ids = var.subnet_ids
@@ -44,4 +41,8 @@ resource "aws_eks_cluster" "to_do_app_cluster" {
     aws_iam_role_policy_attachment.AmazonEKSClusterPolicy,
     aws_iam_role_policy_attachment.AmazonEKSVPCResourceController,
   ]
+
+  tags = {
+    name = "vivek_anjith_cluster"
+  }
 }

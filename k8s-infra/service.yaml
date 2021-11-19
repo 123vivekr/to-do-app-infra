@@ -3,9 +3,8 @@ kind: Service
 metadata:
   name: to-do-app-service
   namespace: to-do-app
-  labels: 
-    app: to-do-app
 spec:
+  type: LoadBalancer
   selector:
     app: to-do-app
   ports:

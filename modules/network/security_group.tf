@@ -37,6 +37,10 @@ resource "aws_security_group" "cluster_sg" {
     cidr_blocks = var.elb_sg_cidr
   }
 
+  tags = {
+    name = "vivek_anjith"
+  }
+
 }
 
 resource "aws_security_group" "elb_sg" {
@@ -61,5 +65,9 @@ resource "aws_security_group" "elb_sg" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = var.elb_sg_cidr
+  }
+
+  tags = {
+    name = "vivek_anjith"
   }
 }

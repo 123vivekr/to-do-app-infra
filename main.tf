@@ -29,4 +29,5 @@ module "network" {
 module "cluster" {
   source = "./modules/cluster"
   subnet_ids = module.network.subnet_ids
+  cluster_sg_id = module.network.cluster_sg_id
 }

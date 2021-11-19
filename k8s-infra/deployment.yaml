@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: to-do-app-deployment
   namespace: to-do-app
-  label: 
-    app: to-do-app
 spec:
   selector:
     matchLabels:
